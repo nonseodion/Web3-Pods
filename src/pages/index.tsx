@@ -97,42 +97,45 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div className={styles.submain}>
-          <h1>Web3Pods</h1>
-          {!smartAccount && <p>Login to mint a pod.</p>}
-          {!loading && !address && (
-            <button onClick={connect} className={styles.connect}>
-              Login
-            </button>
-          )}
-          {loading && <p>Loading Smart Account...</p>}
-          {address && (
-            <h2>
-              Smart Account:{" "}
-              <a
-                href={`https://goerli.basescan.org/address/${address}`}
-                className={styles.address}
-                target="_blank"
-              >
-                {address.slice(0, 6)}...{address.slice(-5, -1)}
-              </a>
-            </h2>
-          )}
-          {smartAccount && provider && (
-            <Minter
-              smartAccount={smartAccount}
-              address={address}
-              provider={provider}
-            />
-          )}
-        </div>
-        <div className={styles.footer}>
           <div>
-            Made with malice 😈 by <a href="https://github.com/nonseodion">nonseodion</a>.
+            <h1>Web3Pods</h1>
+            {!smartAccount && <p>Login to mint a pod.</p>}
+            {!loading && !address && (
+              <button onClick={connect} className={styles.connect}>
+                Login
+              </button>
+            )}
+            {loading && <p>Loading Smart Account...</p>}
+            {address && (
+              <h2>
+                Smart Account:{" "}
+                <a
+                  href={`https://goerli.basescan.org/address/${address}`}
+                  className={styles.address}
+                  target="_blank"
+                >
+                  {address.slice(0, 6)}...{address.slice(-5, -1)}
+                </a>
+              </h2>
+            )}
+            {smartAccount && provider && (
+              <Minter
+                smartAccount={smartAccount}
+                address={address}
+                provider={provider}
+              />
+            )}
           </div>
+        </div>
+        <footer className={styles.footer}>
           <div>
+            Made with malice 😈 by{" "}
+            <a href="https://github.com/nonseodion">nonseodion</a>.
+          </div>
+          <div className={styles.source}>
             <a href="https://github.com/nonseodion/web3-pods">Source code</a>
           </div>
-        </div>
+        </footer>
       </main>
     </>
   );

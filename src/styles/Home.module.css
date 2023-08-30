@@ -100,11 +100,19 @@ a.listen {
 .main {
   text-align: center;
   width: 100vw;
-  margin-bottom: 50px;
+  height: 100vh;
+  margin-bottom: 10px;
 }
 
 .submain {
-  margin: 20px 15px 10px 15px;
+  margin: 0px 15px 10px 15px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.submain > div {
+          
 }
 
 .connect {
@@ -123,18 +131,22 @@ a.listen {
   max-width: 300px;
   width: 100%;
   margin: auto;
+}
 
+.btns .listen{
+  margin-top: 10px;
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  margin: auto;
-  margin-bottom: 10px;
+  top: 100vh;
+  position: sticky;
 }
 
 .footer a {
   color: green;
   text-decoration: underline;
+}
+
+.footer source {
+  margin-bottom: 25px;
 }

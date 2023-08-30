@@ -145,7 +145,6 @@ const Minter: React.FC<Props> = ({ smartAccount, address, provider }) => {
             <a href={podcast.link} target="_blank">
               <button className={styles["listen-btn"]}>Listen now</button>
             </a>
-            <br /> <br />
             <a
               href={`https://testnets.opensea.io/assets/base-goerli/${nftAddress}/${tokens[0]}`}
               target="_blank"
@@ -154,6 +153,7 @@ const Minter: React.FC<Props> = ({ smartAccount, address, provider }) => {
               View on Opensea
             </a>
           </div>
+          <br /> <br />
         </div>
       )}
 
