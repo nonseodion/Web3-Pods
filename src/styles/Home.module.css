@@ -1,0 +1,126 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+a.address {
+  text-decoration: underline;
+  color: black !important
+}
+
+a.listen {
+  text-decoration: underline;
+  color: green !important;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.card {
+  padding: 2em;
+}
+
+.podContainer {
+  max-width: 500px;
+  margin: 10px auto 10px auto;
+  text-align: left;
+}
+
+.podContainer h2 {
+  margin: 0;
+}
+
+.podContainer div {
+  margin-top: 10px;
+}
+
+.image {
+  position: relative;
+  width: 192px;
+  height: 192px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.description {
+  margin-bottom: 5px;
+}
+
+.readDocs {
+  color: #FF4E17;
+}
+
+.linkWrapper {
+  margin-top: 15px;
+}
+
+.readDocs:hover {
+  color: #b84814;
+  transition: 0.7s;
+}
+
+.demoButton {
+  background-color: #FF4E17;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.demoButton:hover {
+  background-color: #b84814;
+  transition: 0.7s;
+}
+
+.viewNFT {
+  color: #FF4E17;
+}
+
+.demoContainter {
+  text-align: center;
+  width: 100vw;
+}
+
+.main {
+  text-align: center;
+  width: 100vw;
+}
+
+.submain {
+  margin: 20px 15px 10px 15px;
+}
+
+.connect {
+  background-color: #000;
+  color: #fff;
+}
+
+.listen-btn {
+  background-color: #000;
+  color: #fff;
+  max-width: 300px; 
+  width: 100%;
+}
+
+.btns {
+  max-width: 300px;
+  width: 100%;
+  margin: auto;
+
+}
