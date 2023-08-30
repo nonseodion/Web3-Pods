@@ -130,7 +130,7 @@ export default function Home() {
         <footer className={styles.footer}>
           <div>
             Made with malice 😈 by{" "}
-            <a href="https://github.com/nonseodion">nonseodion</a>.
+            <a href="https://twitter.com/nonseodion">nonseodion</a>.
           </div>
           <div className={styles.source}>
             <a href="https://github.com/nonseodion/web3-pods">Source code</a>
