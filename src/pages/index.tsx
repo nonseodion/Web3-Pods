@@ -92,12 +92,12 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>4337Pods</title>
-        <meta name="description" content="4337Pods" />
+        <title>Web3Pods</title>
+        <meta name="description" content="Web3Pods" />
       </Head>
       <main className={styles.main}>
         <div className={styles.submain}>
-          <h1>4337Pods</h1>
+          <h1>Web3Pods</h1>
           {!smartAccount && <p>Login to mint a pod.</p>}
           {!loading && !address && (
             <button onClick={connect} className={styles.connect}>

@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 
-const nftAddress = "0xe7D6644757A8022d1f39254b2067E277E1B01198";
+const nftAddress = "0x087a29a89fDae1Ff469Bae4518BCA9dE9fAeD13e";
 interface Props {
   smartAccount: BiconomySmartAccount;
   address: string;
@@ -129,7 +129,7 @@ const Minter: React.FC<Props> = ({ smartAccount, address, provider }) => {
     <>
       {address && !minted && (
         <button onClick={handleMint} className={styles.connect}>
-          {!minting ? "Mint a 4337Pod" : "Minting"}
+          {!minting ? "Mint a Web3Pod" : "Minting"}
         </button>
       )}
 
