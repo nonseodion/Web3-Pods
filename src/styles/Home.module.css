@@ -100,6 +100,7 @@ a.listen {
 .main {
   text-align: center;
   width: 100vw;
+  margin-bottom: 50px;
 }
 
 .submain {
@@ -123,4 +124,17 @@ a.listen {
   width: 100%;
   margin: auto;
 
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.footer a {
+  color: green;
+  text-decoration: underline;
 }

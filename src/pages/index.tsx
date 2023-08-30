@@ -125,6 +125,14 @@ export default function Home() {
             />
           )}
         </div>
+        <div className={styles.footer}>
+          <div>
+            Made with malice 😈 by <a href="https://github.com/nonseodion">nonseodion</a>.
+          </div>
+          <div>
+            <a href="https://github.com/nonseodion/web3-pods">Source code</a>
+          </div>
+        </div>
       </main>
     </>
   );
