@@ -134,7 +134,16 @@ export default function Home() {
             <a href="https://twitter.com/nonseodion">nonseodion</a>.
           </div>
           <div className={styles.source}>
-            <a href="https://github.com/nonseodion/web3-pods">Source code</a>
+            <a href="https://github.com/nonseodion/web3-pods" target="_blank">
+              Source code
+            </a>
+            &nbsp; &nbsp;
+            <a
+              href="https://docs.google.com/presentation/d/1ydeQiLbDpaoG0eOhzuOsQZhVryRUU8cdMQbK3dki5Lg/edit?usp=sharing"
+              target="_blank"
+            >
+              Slides
+            </a>
           </div>
         </footer>
 
