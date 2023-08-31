@@ -12,6 +12,7 @@ import {
 import { ChainId } from "@biconomy/core-types";
 import { IPaymaster, BiconomyPaymaster } from "@biconomy/paymaster";
 import Minter from "../components/Minter";
+import { ToastContainer } from "react-toastify";
 
 const particle = new ParticleAuthModule.ParticleNetwork({
   projectId: "bce136fd-0a1c-462e-b07a-111bfb50f0b3",
@@ -136,6 +137,19 @@ export default function Home() {
             <a href="https://github.com/nonseodion/web3-pods">Source code</a>
           </div>
         </footer>
+
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
       </main>
     </>
   );
