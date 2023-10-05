@@ -1,18 +1,13 @@
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import abi from "../utils/abi.json";
-import {
-  IHybridPaymaster,
-  SponsorUserOperationDto,
-  PaymasterMode,
-} from "@biconomy/paymaster";
 import { BiconomySmartAccount } from "@biconomy/account";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 
-const nftAddress = "0x53df9a7327DD8a84C27E81768c2ce7704E3e8B51";
+const nftAddress = "0x7A69ceF86F94717A0a76FFAFF7BD17Dcf9F82f3e";
 interface Props {
   smartAccount: BiconomySmartAccount;
   address: string;
@@ -26,14 +21,15 @@ const jsonProvider = new ethers.providers.JsonRpcProvider(
 let tokens: Number[] = [];
 
 interface Podcast {
-  name: "",
-  episode: "",
-  description: "",
-  image: "",
-  link: ""
+  name: "";
+  episode: "";
+  description: "";
+  image: "";
+  link: "";
 }
 
 const Minter: React.FC<Props> = ({ smartAccount, address, provider }) => {
+  console.log(address, "address");
   const [minted, setMinted] = useState<boolean>(false);
   const [minting, setMinting] = useState<boolean>(false);
   const contract = new ethers.Contract(nftAddress, abi, provider);
@@ -52,78 +48,49 @@ const Minter: React.FC<Props> = ({ smartAccount, address, provider }) => {
         draggable: true,
         progress: undefined,
         theme: "dark",
-      });  
-      const minTx = await contract.populateTransaction.mint();
-      console.log(minTx.data);
-      const tx1 = {
-        to: nftAddress,
-        data: minTx.data,
-      };
-      let userOp = await smartAccount.buildUserOp([tx1]);
-      console.log({ userOp });
-      const biconomyPaymaster =
-        smartAccount.paymaster as IHybridPaymaster<SponsorUserOperationDto>;
-      let paymasterServiceData: SponsorUserOperationDto = {
-        mode: PaymasterMode.SPONSORED,
-      };
-      const paymasterAndDataResponse =
-        await biconomyPaymaster.getPaymasterAndData(
-          userOp,
-          paymasterServiceData
-        );
+      });
+      // mint token with Smart Account
 
-      userOp.paymasterAndData = paymasterAndDataResponse.paymasterAndData;
-      const userOpResponse = await smartAccount.sendUserOp(userOp);
-      console.log("userOpHash", userOpResponse);
-      const { receipt } = await userOpResponse.wait(1);
-      setMinting(false);
-      setMinted(true);
-      toast.success(
-        `Success! Here is your transaction:${receipt.transactionHash} `,
-        {
-          position: "top-right",
-          autoClose: 18000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        }
-      );
-      console.log("txHash", receipt.transactionHash);
+      toast.success(`Success! Here is your transaction:`, {
+        position: "top-right",
+        autoClose: 18000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     } catch (err: any) {
       console.error(err);
       console.log(err);
     }
   };
 
-  // check mint
+  // display NFT if minted
   useEffect(() => {
-    (async() => {
-      console.log(address)
+    (async () => {
+      if (!address) return;
       const nftContract = new ethers.Contract(nftAddress, abi, jsonProvider);
       tokens = await nftContract.tokensOfOwner(address);
-      if(tokens.length >= 1){
+      if (tokens.length >= 1) {
         setMinted(true);
         const tokenUri = await nftContract.tokenURI(tokens[0]);
         const res = await (await fetch(tokenUri)).json();
-        
+
         // read nft metadata
         const podcast = {
           episode: res.name,
           name: res.attributes["podcast-name"],
           description: res.description,
           image: res.image,
-          link: res.attributes["episode-link"]
-        }
+          link: res.attributes["episode-link"],
+        };
 
         setPodcast(podcast);
       }
-      
     })();
-  }, [minted])
- 
+  }, [minted]);
 
   return (
     <>
@@ -156,10 +123,8 @@ const Minter: React.FC<Props> = ({ smartAccount, address, provider }) => {
           <br /> <br />
         </div>
       )}
-
-
     </>
   );
-}
+};
 
 export default Minter;
